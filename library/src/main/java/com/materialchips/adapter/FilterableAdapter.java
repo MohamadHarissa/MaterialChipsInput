@@ -69,10 +69,9 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             }
         };
         // remove chips that do not have label
-        Iterator<? extends ChipInterface> iterator = chipList.iterator();
-        while(iterator.hasNext()) {
-            if(iterator.next().getLabel() == null)
-                iterator.remove();
+        for(ChipInterface chip : chipList){
+            if(chip.getLabel() == null)
+                chipList.remove(chip);
         }
         sortList(chipList);
         mOriginalList.addAll(chipList);
