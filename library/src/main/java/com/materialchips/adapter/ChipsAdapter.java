@@ -311,11 +311,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     public void removeChipById(Object id) {
-        for (Iterator<ChipInterface> iter = mChipList.listIterator(); iter.hasNext(); ) {
-            ChipInterface chip = iter.next();
+        for(ChipInterface chip : mChipList) {
             if (chip.getId() != null && chip.getId().equals(id)) {
                 // remove chip
-                iter.remove();
+                mChipList.remove(chip);
                 // notify listener
                 mChipsInput.onChipRemoved(chip, mChipList.size());
             }
@@ -328,11 +327,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     public void removeChipByLabel(String label) {
-        for (Iterator<ChipInterface> iter = mChipList.listIterator(); iter.hasNext(); ) {
-            ChipInterface chip = iter.next();
+        for(ChipInterface chip : mChipList) {
             if (chip.getLabel().equals(label)) {
                 // remove chip
-                iter.remove();
+                mChipList.remove(chip);
                 // notify listener
                 mChipsInput.onChipRemoved(chip, mChipList.size());
             }
@@ -345,15 +343,14 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     public void removeChipByInfo(String info) {
-        for (Iterator<ChipInterface> iter = mChipList.listIterator(); iter.hasNext(); ) {
-            ChipInterface chip = iter.next();
+        for (ChipInterface chip : mChipList) {
             if (chip.getInfo() != null && chip.getInfo().equals(info)) {
                 // remove chip
-                iter.remove();
+                mChipList.remove(chip);
                 // notify listener
                 mChipsInput.onChipRemoved(chip, mChipList.size());
             }
-        }
+    }
         // if 0 chip
         if (mChipList.size() == 0)
             mEditText.setHint(mHintLabel);
