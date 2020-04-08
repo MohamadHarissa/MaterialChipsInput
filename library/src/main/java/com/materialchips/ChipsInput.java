@@ -403,4 +403,16 @@ public class ChipsInput extends ScrollViewMaxHeight {
     public interface ChipValidator {
         boolean areEquals(ChipInterface chip1, ChipInterface chip2);
     }
+
+    public void showFilterList() {
+        mFilterableListView.fadeIn();
+    }
+
+    public void hideFilterList() {
+        mFilterableListView.fadeOut();
+    }
+
+    public void refreshList() {
+        mChipsAdapter.notifyDataSetChanged();
+    }
 }

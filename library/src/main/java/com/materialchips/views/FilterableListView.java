@@ -102,16 +102,10 @@ public class FilterableListView extends RelativeLayout {
     }
 
     public void filterList(CharSequence text) {
-        mAdapter.getFilter().filter(text, new Filter.FilterListener() {
-            @Override
-            public void onFilterComplete(int count) {
-                // show if there are results
-                if(mAdapter.getItemCount() > 0)
-                    fadeIn();
-                else
-                    fadeOut();
-            }
-        });
+        if (mAdapter.getItemCount() > 0)
+            fadeIn();
+        else
+            fadeOut();
     }
 
     /**
