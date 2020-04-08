@@ -156,7 +156,12 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mChipsInput.onTextChanged(s);
+                try {
+                    mChipsInput.onTextChanged(s);
+                }catch (Exception e){
+
+                }
+
             }
 
             @Override
